@@ -66,12 +66,10 @@ void recoil_thread() {
 		if (current_window_title() == "Apex Legends") {
 			while (GetAsyncKeyState(VK_LBUTTON) & 0x8000 && GetAsyncKeyState(VK_RBUTTON) & 0x8000) {
 				if (counter < weapon[settings.weapon_idx].x.size()) {
-					for (int i = 0; i < 3; i++) {
+					for (int i = 0; i < 4; i++) {
 						m.move(weapon[settings.weapon_idx].x[counter] / 4, weapon[settings.weapon_idx].y[counter] / 4);
 						std::this_thread::sleep_for(std::chrono::milliseconds(weapon[settings.weapon_idx].fire_rate / 4));
 					}
-					m.move(weapon[settings.weapon_idx].x[counter] / 4, weapon[settings.weapon_idx].y[counter] / 4);
-					std::this_thread::sleep_for(std::chrono::milliseconds(weapon[settings.weapon_idx].fire_rate / 4 - 4));
 
 					m.move(weapon[settings.weapon_idx].x[counter] % 4, weapon[settings.weapon_idx].y[counter] % 4);
 					std::this_thread::sleep_for(std::chrono::milliseconds(weapon[settings.weapon_idx].fire_rate % 4));
